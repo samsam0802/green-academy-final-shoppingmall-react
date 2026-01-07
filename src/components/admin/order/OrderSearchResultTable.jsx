@@ -199,10 +199,10 @@ const OrderSearchResultTable = ({ orders, searchHandler }) => {
 
       {/* 결과 테이블 */}
       <div className="overflow-x-auto border border-gray-300 rounded-lg shadow-md">
-        <table className="min-w-full border-collapse text-sm text-center">
+        <table className="min-w-full table-fixed border-collapse text-sm text-center">
           <thead className="bg-gray-100 border-b border-gray-300">
             <tr className="text-gray-700 font-semibold text-sm divide-x divide-gray-300">
-              <th className="px-1 py-3 w-13">
+              <th className="px-1 py-3 w-10">
                 <input
                   type="checkbox"
                   onChange={handleSelectAll}
@@ -212,15 +212,15 @@ const OrderSearchResultTable = ({ orders, searchHandler }) => {
                   }
                 ></input>
               </th>
-              <th className="px-2 py-3">번호</th>
-              <th className="px-3 py-3">주문날짜</th>
-              <th className="px-3 py-3">주문번호</th>
-              <th className="px-3 py-3">상품명</th>
-              <th className="px-3 py-3">수량</th>
-              <th className="px-3 py-3">받는사람/주문자</th>
-              <th className="px-3 py-3">결제수단</th>
-              <th className="px-3 py-3">결제금액</th>
-              <th className="px-3 py-3">주문상태</th>
+              <th className="px-2 py-3 w-12">번호</th>
+              <th className="px-3 py-3 w-24">주문날짜</th>
+              <th className="px-3 py-3 w-32">주문번호</th>
+              <th className="px-3 py-3 w-80">상품명</th>
+              <th className="px-3 py-3 w-14">수량</th>
+              <th className="px-3 py-3 w-36">받는사람/주문자</th>
+              <th className="px-3 py-3 w-20">결제수단</th>
+              <th className="px-3 py-3 w-28">결제금액</th>
+              <th className="px-3 py-3 w-32">주문상태</th>
             </tr>
           </thead>
 
@@ -260,7 +260,7 @@ const OrderSearchResultTable = ({ orders, searchHandler }) => {
                     </td>
                   </>
                 )}
-                <td className="px-3 py-3">
+                <td className="px-3 py-3 text-left break-words">
                   {item.productName}-{item.productOptionName}
                 </td>
                 <td className="px-3 py-3">{item.quantity}</td>
