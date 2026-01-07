@@ -12,7 +12,6 @@ import CouponModal from "./CouponModal";
 import { getUserProfileThunk } from "../../redux/slices/features/user/authSlice";
 import useCustomCart from "../../hooks/useCustomCart";
 
-
 // Helper function to format price with commas and '원'
 const formatPrice = (price) => {
   return `${Number(price).toLocaleString()}원`;
@@ -45,7 +44,7 @@ const OrderComponent = () => {
   // console.log("user", user);
   // console.log("profile", profile);
 
-  const {removeAll} = useCustomCart();
+  const { removeAll } = useCustomCart();
 
   const [orderItems, setOrderItems] = useState(
     passedItems.length > 0 ? passedItems : []
@@ -81,14 +80,14 @@ const OrderComponent = () => {
   const [earnedPoints, setEarnedPoints] = useState(0);
 
   const paymentMethods = [
-    { id: "card", label: "신용/체크카드" },
-    { id: "kakao", label: "카카오페이" },
-    { id: "naver", label: "네이버페이" },
-    { id: "payco", label: "PAYCO" },
-    { id: "phone", label: "휴대폰 결제" },
-    { id: "bank", label: "계좌이체" },
+    { id: "CARD", label: "신용/체크카드" },
+    { id: "KAKAO", label: "카카오페이" },
+    { id: "NAVER", label: "네이버페이" },
+    { id: "PAYCO", label: "PAYCO" },
+    { id: "PHONE", label: "휴대폰 결제" },
+    { id: "BANK", label: "계좌이체" },
   ];
-  const [selectedPayment, setSelectedPayment] = useState("card");
+  const [selectedPayment, setSelectedPayment] = useState("CARD");
 
   const paymentMethod = paymentMethods.find(
     (m) => m.id === selectedPayment
@@ -156,7 +155,8 @@ const OrderComponent = () => {
 
   // console.log("totalPrice", totalPrice);
 
-  const freeConditionAmount = orderItems[0]?.deliveryPolicy?.freeConditionAmount;
+  const freeConditionAmount =
+    orderItems[0]?.deliveryPolicy?.freeConditionAmount;
   const basicDeliveryFee = orderItems[0]?.deliveryPolicy?.basicDeliveryFee;
 
   const shippingFee = totalPrice >= freeConditionAmount ? 0 : basicDeliveryFee;
@@ -208,12 +208,12 @@ const OrderComponent = () => {
       return;
     }
 
-    if (selectedPayment === "naver") {
+    if (selectedPayment === "NAVER") {
       alert("해당 결제 수단은 사업자 정보가 필요하여 미구현합니다.");
       return;
     }
 
-    if (selectedPayment !== "kakao") {
+    if (selectedPayment !== "KAKAO") {
       alert("해당 결제 수단은 실제 금액이 빠져나가는 이유로 미구현합니다. ");
       return;
     }
@@ -309,7 +309,7 @@ const OrderComponent = () => {
               await removeAll(user.id);
             } catch (error) {
               console.error("주문 확정 처리 중 오류:", error);
-              alert("주문 확정 처리 중 문제가 발생했습니다.");ㄴ
+              alert("주문 확정 처리 중 문제가 발생했습니다.");
             }
           }
         }

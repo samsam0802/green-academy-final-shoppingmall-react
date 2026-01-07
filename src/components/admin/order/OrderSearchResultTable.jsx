@@ -240,14 +240,20 @@ const OrderSearchResultTable = ({ orders, searchHandler }) => {
                 </td>
                 {item.isFirstProduct && (
                   <>
-                    <td className="px-3 py-3" rowSpan={item.productCount}>
+                    <td
+                      className="px-3 py-3 align-middle"
+                      rowSpan={item.productCount}
+                    >
                       {item.orderId}
                     </td>
-                    <td className="px-3 py-3" rowSpan={item.productCount}>
+                    <td
+                      className="px-3 py-3 align-middle"
+                      rowSpan={item.productCount}
+                    >
                       {item.orderDate}
                     </td>
                     <td
-                      className="px-3 py-3 text-blue-600 cursor-pointer hover:underline"
+                      className="px-3 py-3 text-blue-600 cursor-pointer hover:underline align-middle"
                       rowSpan={item.productCount}
                     >
                       {item.orderNumber}
@@ -260,10 +266,16 @@ const OrderSearchResultTable = ({ orders, searchHandler }) => {
                 <td className="px-3 py-3">{item.quantity}</td>
                 {item.isFirstProduct && (
                   <>
-                    <td className="px-3 py-3" rowSpan={item.productCount}>
+                    <td
+                      className="px-3 py-3 align-middle"
+                      rowSpan={item.productCount}
+                    >
                       {item.receiverName}/{item.ordererName}
                     </td>
-                    <td className="px-3 py-3" rowSpan={item.productCount}>
+                    <td
+                      className="px-3 py-3 align-middle"
+                      rowSpan={item.productCount}
+                    >
                       {item.paymentMethod}
                     </td>
                   </>
