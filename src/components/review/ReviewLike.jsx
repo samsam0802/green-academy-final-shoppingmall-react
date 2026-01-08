@@ -18,8 +18,8 @@ const ReviewLike = ({ reviewId, reviewUserId }) => {
       return;
     }
 
-    alert("본인의 리뷰에는 좋아요를 누를 수 없습니다.");
     if (isMyReview) {
+      alert("본인의 리뷰에는 좋아요를 누를 수 없습니다.");
       return; //본인 리뷰는 무시
     }
     try {
