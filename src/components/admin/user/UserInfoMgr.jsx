@@ -184,10 +184,9 @@ const UserInfoMgr = () => {
         {/* 날짜 */}
         <div className="flex border-b border-gray-300 items-stretch">
           <div className="w-40 bg-gray-50 border-r border-gray-300 text-gray-700 font-semibold flex items-center justify-center p-2">
-            날짜
+            가입일
           </div>
           <div className="flex items-center flex-grow p-2 gap-2">
-            <span>가입일</span>
             <input
               type="date"
               value={startDate}
