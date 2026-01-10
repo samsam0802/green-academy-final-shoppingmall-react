@@ -5,18 +5,28 @@ import ProductSearchBar from "../../components/search/ProductSearchBar";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutAsyncThunk } from "../../redux/slices/features/user/authSlice";
 import logo from "../../images/logo.png";
+import { getActivePoints } from "../../api/point/pointApi";
 
 export default function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.authSlice);
+  const [point, setPoint] = useState(0);
 
   const notices = [
     "[WELCOME] 공지/이벤트",
     "1월 신규가입 3,000원 쿠폰 지급 이벤트",
-    "배송지연 지역 안내 (제주도 일부 지역)"
+    "배송지연 지역 안내 (제주도 일부 지역)",
   ];
   const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const fetchActivePoint = async () => {
+      const data = await getActivePoints(user?.id);
+      setPoint(data);
+    };
+    fetchActivePoint();
+  }, [user]);
 
   useEffect(() => {
     const timer = setInterval(
@@ -68,15 +78,14 @@ export default function Header() {
                     관리자
                   </span>
                 ) : (
-                  <>
-                    <span className="px-2 py-0.5 bg-blue-500 text-white text-[11px] font-semibold rounded">
-                      {user.userGrade}
-                    </span>
-                    <span className="px-2 py-0.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[11px] font-semibold rounded">
-                      {user.activePoint?.toLocaleString() || 0}P
-                    </span>
-                  </>
+                  <></>
                 )}
+                <span className="px-2 py-0.5 bg-blue-500 text-white text-[11px] font-semibold rounded">
+                  {user.userGrade}
+                </span>
+                <span className="px-2 py-0.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[11px] font-semibold rounded">
+                  {point?.toLocaleString() || 0} P
+                </span>
               </div>
             )}
 
@@ -156,7 +165,7 @@ export default function Header() {
                 { label: "오특", color: "bg-orange-400" },
                 { label: "랭킹", color: "bg-[#FF8FAB]" },
                 { label: "신상", color: "bg-purple-400" },
-                { label: "이벤트", color: "bg-red-400", pulse: true }
+                { label: "이벤트", color: "bg-red-400", pulse: true },
               ].map((tag) => (
                 <button
                   key={tag.label}
