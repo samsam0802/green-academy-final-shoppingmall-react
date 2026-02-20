@@ -358,9 +358,6 @@ export default function OrderHistoryComponent() {
             </button>
           ))}
         </div>
-        <p className="text-xs text-gray-400">
-          ※ 최근 1년 내 구매내역만 조회 가능합니다.
-        </p>
       </div>
 
       {/* 날짜 직접 입력 */}
@@ -376,9 +373,10 @@ export default function OrderHistoryComponent() {
               value={startYear}
               onChange={(e) => setStartYear(e.target.value)}
             >
-              <option>2025</option>
-              <option>2024</option>
-              <option>2023</option>
+              <option>{today.year()}</option>
+              <option>{today.year()-1}</option>
+              <option>{today.year()-2}</option>
+              <option>{today.year()-3}</option>
             </select>
             <span className="text-sm text-gray-500">년</span>
 
@@ -418,9 +416,10 @@ export default function OrderHistoryComponent() {
               value={endYear}
               onChange={(e) => setEndYear(e.target.value)}
             >
-              <option>2025</option>
-              <option>2024</option>
-              <option>2023</option>
+              <option>{today.year()}</option>
+              <option>{today.year()-1}</option>
+              <option>{today.year()-2}</option>
+              <option>{today.year()-3}</option>
             </select>
             <span className="text-sm text-gray-500">년</span>
 
