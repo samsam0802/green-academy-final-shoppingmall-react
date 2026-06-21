@@ -3,7 +3,7 @@ import axios from "axios";
 // 로컬 개발 api 요청 경로
 // export const API_SERVER = "http://localhost:8080";
 // aws 로드밸런서 api 요청 경로
-export const API_SERVER = "https://api.moisture-village.shop";
+export const API_SERVER = "https://green-academy-final-shoppingmall-server.onrender.com";
 
 export const axiosInstance = axios.create({
   baseURL: API_SERVER,
