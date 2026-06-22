@@ -13,9 +13,9 @@ import { useNavigate } from "react-router-dom";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
 const mainImages = [
-  "https://www.theskinfood.com/shopimages/skinfood/main_rolling2_364.jpg?1762732886",
-  "https://www.theskinfood.com/shopimages/skinfood/main_rolling2_363.jpg?1761901835",
-  "https://www.theskinfood.com/shopimages/skinfood/main_rolling2_349.jpg?1761901835",
+  "https://res.cloudinary.com/dh1ntaqlj/image/upload/v1782101098/michela-ampolo-7tDGb3HrITg-unsplash_pxthar.jpg",
+  "https://res.cloudinary.com/dh1ntaqlj/image/upload/v1782101110/birgith-roosipuu-GdsFTnarsog-unsplash_motzfc.jpg",
+  "https://res.cloudinary.com/dh1ntaqlj/image/upload/v1782101118/kadarius-seegars-Mxy5gokl8mE-unsplash_c4xxc5.jpg",
 ];
 
 const newImages = [
