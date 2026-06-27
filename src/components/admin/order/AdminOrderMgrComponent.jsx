@@ -216,7 +216,13 @@ const AdminOrderMgrComponent = () => {
           <div className="p-2 flex items-center flex-wrap flex-grow gap-x-3">
             <select
               className="border border-gray-300 p-1 mr-2 bg-white cursor-pointer h-[32px] rounded-md focus:ring-blue-500 focus:border-blue-500 transition"
-              onChange={(e) => setSelectedSearchType(e.target.value)} // 선택된 값을 selectedSearchType에 저장
+              onChange={(e) => {
+                setSelectedSearchType(e.target.value);
+                setOrderNumber("");
+                setOrdererName("");
+                setProductName("");
+                }
+              } // 선택된 값을 selectedSearchType에 저장
               value={selectedSearchType} // 현재 선택된 값 표시
             >
               <option>주문번호</option>
